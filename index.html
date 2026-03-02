@@ -1,10 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> home | Glassmorphism OS</title>
     <style>
+        <div class="news-bar">
+    <div class="ticker-wrapper">
+        <div class="ticker-text">
+            <span>[ SYSTEM UPDATE ]</span> Web4 Interface v1.0.2 is now live... 
+            <span>[ STATUS ]</span> All systems operational... 
+            <span>[ RECENT ]</span> New project "Glassmorphism OS" added to repository... 
+            <span>[ ALERT ]</span> Cursor-tracking light source active...
+        </div>
+    </div>
+</div>
+        /* Bottom News Bar */
+.news-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border-top: 1px solid var(--glass-border);
+    padding: 10px 0;
+    z-index: 100;
+    overflow: hidden; /* Hides text outside the bar */
+}
+
+/* The Ticker Wrapper */
+.ticker-wrapper {
+    display: flex;
+    white-space: nowrap;
+}
+
+/* The Scrolling Animation */
+.ticker-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-news 30s linear infinite;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.ticker-text span {
+    margin-right: 50px;
+    color: var(--primary);
+}
+
+@keyframes scroll-news {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+/* Pause on hover so users can read */
+.news-bar:hover .ticker-text {
+    animation-play-state: paused;
+}
+        .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.3s ease;
+}
+
+/* This triggers the Font Awesome "beat" animation on hover */
+.glass-panel:hover .card-icon {
+    filter: drop-shadow(0 0 10px var(--primary));
+    animation: fa-beat 1.5s infinite;
+}
         /* Navigation Bar */
 .navbar {
     position: fixed;
@@ -47,6 +115,28 @@
 /* Adjusting the glass-panel for grid use */
 .glass-panel {
     width: auto; /* Remove fixed width */
+}
+        /* This targets the card when hovered or touched */
+.glass-panel:hover {
+    /* Changes the border to your primary blue */
+    border-color: var(--primary);
+    
+    /* Adds a soft outer glow and a subtle inner blue tint */
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.7),
+        0 0 20px rgba(125, 207, 255, 0.2),
+        inset 0 0 20px rgba(125, 207, 255, 0.1);
+    
+    /* Makes the background slightly more solid blue */
+    background: rgba(125, 207, 255, 0.05);
+}
+
+/* This makes the heading change color when the card is hovered */
+.glass-panel:hover h1, .glass-panel:hover h2 {
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.3s ease;
 }
         :root {
             --primary: #7dcfff;
@@ -128,6 +218,12 @@
 
         .glass-content {
             transform: translateZ(50px);
+            <div class="glass-content">
+    <i class="fa-solid fa-microchip card-icon"></i> <!-- The Icon -->
+    <span class="badge">System Online</span>
+    <h1>Hello World!</h1>
+    ...
+</div>
         }
 
         .badge {
