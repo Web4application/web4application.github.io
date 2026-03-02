@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web4 OS</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+    --primary: #7dcfff;
+    --secondary: #bb9af7;
+    --glass-bg: rgba(15,15,26,0.4);
+    --glass-border: rgba(255,255,255,0.12);
+    --glass-blur: 16px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: #050508;
+    font-family: system-ui, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    padding: 15px 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    opacity: 0.7;
+    transition: .3s;
+}
+.nav-links a:hover {
+    opacity: 1;
+    color: var(--primary);
+}
+
+/* GRID */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 150px auto 120px auto;
+}
+
+/* GLASS PANEL */
+.glass-panel {
+    padding: 40px;
+    border-radius: 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    transition: .3s;
+}
+.glass-panel:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(125,207,255,0.3);
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg,var(--primary),var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.badge {
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:100px;
+    font-size:11px;
+    text-transform:uppercase;
+    border:1px solid var(--glass-border);
+    margin-bottom:1rem;
+    color:var(--primary);
+}
+
+h1,h2 { margin:0 0 1rem 0; }
+
+p { color:rgba(255,255,255,0.6); }
+
+.btn-primary {
+    background: linear-gradient(135deg,var(--primary),var(--secondary));
+    border:none;
+    padding:14px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+    width:100%;
+}
+
+/* NEWS BAR */
+.news-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border-top: 1px solid var(--glass-border);
+    padding: 10px 0;
+    overflow: hidden;
+}
+.ticker-text {
+    display:inline-block;
+    padding-left:100%;
+    white-space:nowrap;
+    animation:scroll 35s linear infinite;
+}
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+.news-bar:hover .ticker-text {
+    animation-play-state: paused;
+}
+
+/* CURSOR GLOW */
+#glow-cursor {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(125,207,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div style="font-weight:800;">WEB4</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#news">News</a>
+        <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<!-- DASHBOARD -->
+<section id="projects" class="dashboard">
+
+<div class="glass-panel">
+    <i class="fa-solid fa-microchip card-icon"></i>
+    <span class="badge">System Online</span>
+    <h1>Core Engine</h1>
+    <p>Processing environment active.</p>
+</div>
+
+<div class="glass-panel">
+    <i class="fa-solid fa-code card-icon"></i>
+    <span class="badge">Dev Ready</span>
+    <h2>Development Node</h2>
+    <p>Workspace compiled successfully.</p>
+</div>
+
+<div class="glass-panel">
+    <i class="fa-solid fa-cloud-arrow-up card-icon"></i>
+    <span class="badge">Deployment</span>
+    <h2>Cloud Sync</h2>
+    <p>Infrastructure connected.</p>
+</div>
+
+</section>
+
+<!-- NEWS SECTION -->
+<section id="news" class="dashboard">
+<div class="glass-panel">
+    <i class="fa-solid fa-newspaper card-icon"></i>
+    <span class="badge">Live Feed</span>
+    <h2>Global Tech Intelligence</h2>
+    <div id="news-preview" style="font-size:0.9rem; opacity:0.8;">
+        Loading headlines...
+    </div>
+</div>
+</section>
+
+<!-- TICKER -->
+<div class="news-bar">
+    <div class="ticker-text" id="ticker-content">
+        Connecting to global servers...
+    </div>
+</div>
+
+<div id="glow-cursor"></div>
+
+<script>
+const glow = document.getElementById('glow-cursor');
+window.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+});
+
+async function fetchNews() {
+    const ticker = document.getElementById('ticker-content');
+    const preview = document.getElementById('news-preview');
+
+    const rssUrl = 'https://www.theverge.com/rss/index.xml';
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+    try {
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+
+        if(data.status === "ok") {
+            const headlines = data.items.map(item =>
+                `[ ${item.pubDate.split(" ")[0]} ] ${item.title}`
+            ).join(" ••• ");
+
+            ticker.innerHTML = headlines + " ••• " + headlines;
+
+            preview.innerHTML = data.items.slice(0,5)
+                .map(item => `<div>• ${item.title}</div>`)
+                .join("");
+        }
+    } catch {
+        ticker.innerHTML = "[ ERROR ] News sync failed.";
+        preview.innerHTML = "Unable to load headlines.";
+    }
+}
+
+fetchNews();
+setInterval(fetchNews,600000);
+</script>
+[% embed https://pkgdown.r-lib.org/ %]
+</body>
+</html>
