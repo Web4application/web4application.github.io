@@ -5,6 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> home | Glassmorphism OS</title>
     <style>
+        /* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 20px;
+    width: 90%;
+    max-width: 1200px;
+    padding: 15px 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { opacity: 1; color: var(--primary); }
+
+/* Project Grid */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 100px; /* Space for navbar */
+    z-index: 10;
+}
+
+/* Adjusting the glass-panel for grid use */
+.glass-panel {
+    width: auto; /* Remove fixed width */
+}
         :root {
             --primary: #7dcfff;
             --secondary: #bb9af7;
@@ -137,7 +180,35 @@
     </style>
 </head>
 <body>
+<nav class="navbar">
+    <div class="logo" style="font-weight: 800; letter-spacing: 2px;">WEB4</div>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+</nav>
 
+<div class="dashboard">
+    <!-- Main Welcome Card -->
+    <div class="glass-panel" id="tilt-card">
+        <div class="glass-content">
+            <span class="badge">Active Session</span>
+            <h1>Hello World!</h1>
+            <p>Welcome to my interactive workspace. Explore my latest deployments below.</p>
+            <button class="btn-primary">Get Started</button>
+        </div>
+    </div>
+
+    <!-- Project Card 1 -->
+    <div class="glass-panel">
+        <div class="glass-content">
+            <span class="badge" style="color: var(--secondary);">Project 01</span>
+            <h2>Web Application</h2>
+            <p>A high-performance interface built with glassmorphism principles.</p>
+            <a href="#" style="color: var(--primary); text-decoration: none; font-size: 0.8rem;">View Source →</a>
+        </div>
+    </div>
     <div class="mesh-gradient"></div>
     <div class="noise-overlay"></div>
     <div id="glow-cursor"></div>
