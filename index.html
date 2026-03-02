@@ -319,7 +319,15 @@
             </div>
         </div>
     </div>
-
+<div class="news-bar" id="live-news-bar">
+    <div class="ticker-wrapper">
+        <div class="ticker-text" id="ticker-content">
+            Fetching latest intelligence... <span>[ CONNECTING ]</span> 
+            Establishing secure uplink... <span>[ STATUS ]</span> 
+            Syncing with global servers...
+        </div>
+    </div>
+</div>
     <script>
         const glow = document.getElementById('glow-cursor');
         const card = document.getElementById('tilt-card');
@@ -350,6 +358,34 @@
         card.addEventListener('mouseenter', () => {
             card.style.transition = "none";
         });
+        async function fetchNews() {
+    const ticker = document.getElementById('ticker-content');
+    // Using rss2json to convert the RSS feed to a format JS can read
+    const rssUrl = 'https://www.theverge.com'; 
+    const apiUrl = `https://api.rss2json.com{encodeURIComponent(rssUrl)}`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        
+        if (data.status === 'ok') {
+            // Join the news titles with your styled spans
+            const headlines = data.items.map(item => 
+                `<span>[ ${item.pubDate.split(' ')[0]} ]</span> ${item.title.toUpperCase()}`
+            ).join(' ••• ');
+            
+            ticker.innerHTML = headlines + " ••• " + headlines; // Double it for a smooth loop
+        }
+    } catch (error) {
+        ticker.innerHTML = "<span>[ ERROR ]</span> Failed to sync live news. Operating in offline mode.";
+        console.error('News Fetch Error:', error);
+    }
+}
+
+// Run the fetch when the page loads
+fetchNews();
+// Refresh every 10 minutes
+setInterval(fetchNews, 600000);
     </script>
 </body>
 </html>
