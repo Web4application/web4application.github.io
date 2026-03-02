@@ -1,4 +1,4 @@
-<!DOCTYPE html><!-- fastht.ml 
+<!DOCTYPE html> <!-- fastht.ml -->
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
@@ -28,13 +28,11 @@
     z-index: 100;
     overflow: hidden; /* Hides text outside the bar */
 }
-
 /* The Ticker Wrapper */
 .ticker-wrapper {
     display: flex;
     white-space: nowrap;
 }
-
 /* The Scrolling Animation */
 .ticker-text {
     display: inline-block;
@@ -44,17 +42,14 @@
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
 }
-
 .ticker-text span {
     margin-right: 50px;
     color: var(--primary);
 }
-
 @keyframes scroll-news {
     from { transform: translateX(0); }
     to { transform: translateX(-100%); }
 }
-
 /* Pause on hover so users can read */
 .news-bar:hover .ticker-text {
     animation-play-state: paused;
@@ -67,7 +62,6 @@
     -webkit-text-fill-color: transparent;
     transition: 0.3s ease;
 }
-
 /* This triggers the Font Awesome "beat" animation on hover */
 .glass-panel:hover .card-icon {
     filter: drop-shadow(0 0 10px var(--primary));
@@ -89,7 +83,6 @@
     align-items: center;
     z-index: 100;
 }
-
 .nav-links a {
     color: white;
     text-decoration: none;
@@ -98,9 +91,7 @@
     opacity: 0.7;
     transition: 0.3s;
 }
-
 .nav-links a:hover { opacity: 1; color: var(--primary); }
-
 /* Project Grid */
 .dashboard {
     display: grid;
@@ -111,7 +102,6 @@
     margin-top: 100px; /* Space for navbar */
     z-index: 10;
 }
-
 /* Adjusting the glass-panel for grid use */
 .glass-panel {
     width: auto; /* Remove fixed width */
@@ -120,17 +110,14 @@
 .glass-panel:hover {
     /* Changes the border to your primary blue */
     border-color: var(--primary);
-    
     /* Adds a soft outer glow and a subtle inner blue tint */
     box-shadow: 
         0 25px 50px -12px rgba(0, 0, 0, 0.7),
         0 0 20px rgba(125, 207, 255, 0.2),
         inset 0 0 20px rgba(125, 207, 255, 0.1);
-    
     /* Makes the background slightly more solid blue */
     background: rgba(125, 207, 255, 0.05);
 }
-
 /* This makes the heading change color when the card is hovered */
 .glass-panel:hover h1, .glass-panel:hover h2 {
     background: linear-gradient(to bottom, var(--primary), var(--secondary));
@@ -146,8 +133,7 @@
             --glass-glow: rgba(255, 255, 255, 0.05);
             --glass-blur: 16px;
         }
-
-        body {
+        :body {
             margin: 0;
             height: 100vh;
             width: 100vw;
@@ -159,7 +145,6 @@
             justify-content: center;
             overflow: hidden;
         }
-
         .mesh-gradient {
             position: fixed;
             inset: 0;
@@ -171,7 +156,6 @@
             background-size: 200% 200%;
             animation: mesh-flow 15s ease infinite alternate;
         }
-
         .noise-overlay {
             position: fixed;
             inset: 0;
@@ -180,13 +164,11 @@
             pointer-events: none;
             background-image: url('https://grainy-gradients.vercel.app');
         }
-
         @keyframes mesh-flow {
             0% { background-position: 0% 0%; }
             100% { background-position: 20% 20%; }
         }
-
-        #glow-cursor {
+        :glow-cursor {
             position: fixed;
             width: 700px;
             height: 700px;
@@ -197,12 +179,10 @@
             z-index: 0;
             will-change: transform;
         }
-
         .glass-container {
             perspective: 1000px;
             z-index: 10;
         }
-
         .glass-panel {
             width: 400px;
             padding: 40px;
@@ -215,18 +195,16 @@
             transform-style: preserve-3d;
             transition: transform 0.1s ease-out;
         }
-
         .glass-content {
             transform: translateZ(50px);
             <div class="glass-content">
     <i class="fa-solid fa-microchip card-icon"></i> <!-- The Icon -->
     <span class="badge">System Online</span>
-    <h1>Hello World!</h1>
+<h1>Hello World!</h1>
     ...
-</div>
-        }
-
-        .badge {
+    </div>
+    }
+    .badge {
             display: inline-block;
             background: rgba(255,255,255,0.05);
             padding: 6px 12px;
@@ -239,7 +217,6 @@
             margin-bottom: 1.5rem;
             color: var(--primary);
         }
-
         h1 {
             font-size: 2.2rem;
             margin: 0 0 1rem 0;
@@ -248,13 +225,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         p {
             color: rgba(255, 255, 255, 0.6);
             line-height: 1.6;
             margin-bottom: 2rem;
         }
-
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #000;
@@ -268,24 +243,21 @@
             box-shadow: 0 10px 25px rgba(125, 207, 255, 0.2);
             transition: transform 0.2s, box-shadow 0.2s;
         }
-
         .btn-primary:hover {
             transform: scale(1.02);
             box-shadow: 0 15px 30px rgba(125, 207, 255, 0.4);
         }
     </style>
-</head>
-<body>
-<nav class="navbar">
+    <body>
+    <nav class="navbar">
     <div class="logo" style="font-weight: 800; letter-spacing: 2px;">WEB4</div>
     <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
         <a href="https://github.com" target="_blank">GitHub</a>
     </div>
-</nav>
-
-<div class="dashboard">
+    </nav>
+    <div class="dashboard">
     <!-- Main Welcome Card -->
     <div class="glass-panel" id="tilt-card">
         <div class="glass-content">
@@ -295,7 +267,6 @@
             <button class="btn-primary">Get Started</button>
         </div>
     </div>
-
     <!-- Project Card 1 -->
     <div class="glass-panel">
         <div class="glass-content">
@@ -308,7 +279,6 @@
     <div class="mesh-gradient"></div>
     <div class="noise-overlay"></div>
     <div id="glow-cursor"></div>
-
     <div class="glass-container">
         <div class="glass-panel" id="tilt-card">
             <div class="glass-content">
@@ -317,9 +287,7 @@
                 <p>My website is officially live. Built with interactive 3D parallax and dynamic lighting.</p>
                 <button class="btn-primary" onclick="window.open('https://github.com')">View My GitHub</button>
             </div>
-        </div>
-    </div>
-<div class="news-bar" id="live-news-bar">
+            <div class="news-bar" id="live-news-bar">
     <div class="ticker-wrapper">
         <div class="ticker-text" id="ticker-content">
             Fetching latest intelligence... <span>[ CONNECTING ]</span> 
@@ -327,18 +295,16 @@
             Syncing with global servers...
         </div>
     </div>
-</div>
+    </div>
     <script>
         const glow = document.getElementById('glow-cursor');
         const card = document.getElementById('tilt-card');
-
         window.addEventListener('mousemove', (e) => {
             glow.animate({
                 left: `${e.clientX}px`,
                 top: `${e.clientY}px`
             }, { duration: 800, fill: "forwards" });
         });
-
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -349,12 +315,10 @@
             const rotateY = (x - centerX) / 15;
             card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
         });
-
         card.addEventListener('mouseleave', () => {
             card.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
             card.style.transition = "transform 0.5s ease";
         });
-
         card.addEventListener('mouseenter', () => {
             card.style.transition = "none";
         });
@@ -363,29 +327,28 @@
     // Using rss2json to convert the RSS feed to a format JS can read
     const rssUrl = 'https://www.theverge.com'; 
     const apiUrl = `https://api.rss2json.com{encodeURIComponent(rssUrl)}`;
-
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        
         if (data.status === 'ok') {
             // Join the news titles with your styled spans
             const headlines = data.items.map(item => 
                 `<span>[ ${item.pubDate.split(' ')[0]} ]</span> ${item.title.toUpperCase()}`
-            ).join(' ••• ');
-            
+            ).join(' ••• '); 
             ticker.innerHTML = headlines + " ••• " + headlines; // Double it for a smooth loop
         }
     } catch (error) {
         ticker.innerHTML = "<span>[ ERROR ]</span> Failed to sync live news. Operating in offline mode.";
         console.error('News Fetch Error:', error);
     }
-}
-
-// Run the fetch when the page loads
-fetchNews();
-// Refresh every 10 minutes
-setInterval(fetchNews, 600000);
-    </script>
-</body>
-</html>
+    }
+    // Run the fetch when the page loads
+    fetchNews();
+    // Refresh every 10 minutes
+    setInterval(fetchNews, 600000);
+            <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    </body>
+    </html>
