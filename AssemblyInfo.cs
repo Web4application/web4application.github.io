@@ -1,1 +1,1 @@
-
+Page.ClientScript.GetWebResourceUrl
