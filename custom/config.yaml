@@ -1,0 +1,12 @@
+FEATURE_1:
+  FEATURE_2:
+    __resources:
+      - foobar
+    __base: doSomething();
+    __test: return doTheTest();
+    FEATURE_3: return doTheOtherTest();
+    FEATURE_4:
+      __base: doSomethingElse();
+      __test: return doTheOtherOtherTest();
+    __additional:
+      FEATURE_3.OPTIONS_PARAMETER: "return doTheOtherTest({hello: 'world'});"
