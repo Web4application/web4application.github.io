@@ -1,0 +1,44 @@
+__resources:
+  RESOURCE_ID:
+    type: RESOURCE_TYPE
+    dependencies:
+      - RESOURCE_DEPENDENCY_1
+      - RESOURCE_DEPENDENCY_2
+    src:
+      - PATH_TO_RESOURCE
+      - ALT_PATH_TO_RESOURCE
+    other_parameters: XXX
+      FEATURE_1:
+  # Nothing
+FEATURE_1.FEATURE_2: doSomething();
+FEATURE_1.FEATURE_2.FEATURE_3: doSomething();
+FEATURE_1.FEATURE_2.FEATURE_4: |-
+  doSomething();
+  doSomethingElse();
+  api:
+  AudioContext:
+    __resources:
+      - audioContext
+    __base: var instance = reusableInstances.audioContext;
+    __test: return 'AudioContext' in self;
+    AudioContext:
+      __additional:
+        options_latencyHint_parameter: return bcd.testOptionParam(window.AudioContext || window.webkitAudioContext, 'constructor', 'latencyHint', 'playback');
+        options_sampleRate_parameter: return bcd.testOptionParam(window.AudioContext || window.webkitAudioContext, 'constructor', 'sampleRate', '44100');
+        options_sinkId_parameter: return bcd.testOptionParam(window.AudioContext || window.webkitAudioContext, 'constructor', 'sinkId', '');
+
+        __resources:
+  audio-blip:
+    type: audio
+    src:
+      - /media/blip.m4a
+      - /media/blip.ogg
+  video-blank:
+    type: video
+    src:
+      - /media/blank.mp4
+      - /media/blank.webm
+    subtitles:
+      - label: English
+        lang: en
+        src: /media/subtitles.vtt
