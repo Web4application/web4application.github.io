@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>welcome to nano</title>
+	</head>
+	<body>
+		<div id="app"></div>
+
+		<script type="text/javascript">
+			const startTime = Date.now()
+		</script>
+		<script type="text/javascript" src="../dist/eve.js"></script>
+		<script type="text/javascript">
+			`
+			{#if !helper[ a + b ](v)}
+				<slot name="title"></slot>
+
+				{ v + 1 && k ? '' : helper( helper( v ) ) }
+
+				<div>
+					abc
+					{#inc content }
+					def
+				</div>
+
+				<div @click="{ onClick($e) }"></div>
+			{/if}
+
+			{ a[ 1 + b * 2 ].b && c + 1 }
+			{#if !helper[ a + b ](v)}{/if}
+			{ v + 1 && k ? '' : helper( helper( v ) ) }
+			`;
+
+			`
+			<a @click.prevent="{ onClick($e) }">{ isString( v ) ? v + 1 : 'hello' }</a>
+			<input :value="{ v }" @keyup.enter="{ onEnter() }" />
+
+			{#if v[b.c].length > 5}
+				文字长度不能超过5
+			{/if}
+
+			{#each items + 1 as item}
+				{ item + 1 }
+			{/each}
+
+			{#if b}
+				<div>1</div>
+				<div>2</div>
+			{#else}
+				<div>3</div>
+				<div>4</div>
+			{/if}
+			`;
+
+			const Button = Eve.extend( {
+				template: `
+					<button @click="{ this.onClick() }">{ text }</button>
+				`,
+
+				data() {
+					return {
+						text: '按钮文字'
+					}
+				},
+
+				methods: {
+					onClick() {
+						console.log( 'clicked' )
+					}
+				}
+			} )
+
+			const App = Eve.extend( {
+				components: {
+					Button
+				},
+
+				data() {
+					return {
+						abc: 'class-abc',
+						first: 'first',
+						last: 'last',
+
+						items: [1,2,3],
+						a: 1,
+						b: false,
+					}
+				},
+				computed: {
+					fullname() {
+						return this.data.first + ' ' + this.data.last
+					}
+				},
+
+				template:
+				`
+					<div class="clazz { abc }" style="margin-top: 100px;" disabled a>
+						<Button text="123"></Button>
+
+						{#each items as b}
+							---
+							<div @click="{ console.log( this ),this.onClick($e, 'a', b) }">a</div>
+							{ b + 1 }
+							<div>{ this.postfix( b, 'haha' ) + '~' }</div>
+							{ this.postfix( fullname, ' en?' ) }
+							<br />
+							---
+							<br />
+						{/each}
+
+						{#if b}
+						<div>b is true</div>
+						{#else}
+						<div>b is false</div>
+						{/if}
+					</div>
+				`
+				,
+
+				methods: {
+					isString( v ) {
+						return typeof v === 'string'
+					},
+
+					postfix( value, v ) {
+						return value + v
+					},
+
+					onClick( e, v1, v2 ) {
+						console.log( 'clicked', e, v1, v2 )
+					},
+
+					onEnter() {
+						console.log( 'entered' );
+					}
+				},
+
+				// 实例被创建
+				created() {
+					console.log( 'I am created' );
+					this.$watch( 'first', ( v1, v2 ) => {
+						this.data.full = this.data.first + this.data.last
+						console.log( `first is changed from ${ v2 } to ${ v1 }` );
+					} )
+					this.$watch( 'last', ( v1, v2 ) => {
+						this.data.full = this.data.first + this.data.last
+						console.log( `last is changed from ${ v2 } to ${ v1 }` );
+					} )
+					this.$watch( 'full', ( v1, v2 ) => {
+						console.log( `full is changed from ${ v2 } to ${ v1 }` );
+					} )
+					this.$watch( 'fullname', ( v1, v2 ) => {
+						console.log( `fullname is changed from ${ v2 } to ${ v1 }` );
+					} )
+
+					this.data.first = 'first2'
+					this.data.last = 'last2'
+
+					setTimeout( () => {
+						this.data.first = 'first3'
+						this.$update()
+					}, 1000);
+
+					setTimeout( () => {
+						this.data.items = [ 6, 7, 8 ]
+						this.$update()
+					}, 2000);
+				},
+
+				// 被挂载到dom中
+				attached() {
+					console.log( 'I am attached' );
+				},
+
+				// 从dom中脱离
+				detached() {
+					console.log( 'I am detached' );
+				},
+
+				// 被销毁
+				disposed() {
+					console.log( 'I am disposed' );
+				},
+			} );
+
+			console.log( '---\nApp' );
+			console.dir( App );
+			console.log( '---' );
+
+			const app = new App();
+
+			console.log( '---\napp' );
+			console.log( app );
+			console.log( '---' );
+
+			app.$mount( '#app' );
+
+			// console.log( 'Sub ->' );
+			//
+			// const SubApp = App.extend( {
+			// 	components: { A: () => {} }
+			// } )
+			// SubApp.component( 'B', () => {} )
+			// App.component( 'C', () => {} )
+			// new SubApp()
+		</script>
+	</body>
+</html>
