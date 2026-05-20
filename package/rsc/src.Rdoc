@@ -21,7 +21,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-home">
+  <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -149,7 +149,6 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <li>Albertus J. Smit <br><small class="roles"> Author, contributor </small> <a href="https://orcid.org/0000-0002-3799-6126" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" height="16"></a> </li>
 </ul>
 </div>
-
   </div>
 </div>
 
