@@ -93,7 +93,7 @@
 
         async function buildProjectHub() {
             try {
-                const response = await fetch(`https://api.github.com{GITHUB_USERNAME}/repos?sort=updated`);
+                const response = await fetch(`https://api.github.io{GITHUB_USERNAME}/repos?sort=updated`);
                 const repos = await response.json();
                 const container = document.getElementById('project-grid');
                 container.innerHTML = ''; // Clear loading text
