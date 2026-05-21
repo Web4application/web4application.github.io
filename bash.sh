@@ -16,3 +16,4 @@ git init
   git branch -M main
   git remote add origin https://github.com/QUBUHUB
   git push -u origin main
+  $ gem install yard
