@@ -1,0 +1,20 @@
+{
+  "mcp": {
+    "servers": {
+      "grafana": {
+        "type": "sse",
+        "url": "http://localhost:3000"
+      },
+
+      "web4-ai": {
+        "type": "sse",
+        "url": "http://localhost:8080"
+      },
+
+      "fadaka-chain": {
+        "type": "sse",
+        "url": "http://localhost:9000"
+      }
+    }
+  }
+}
