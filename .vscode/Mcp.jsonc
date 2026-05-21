@@ -1,0 +1,30 @@
+{
+  // External AI MCP endpoint
+  "agentai": {
+    "url": "https://mcp.agent.ai/mcp"
+  },
+
+  // Local MCP infrastructure
+  "mcp": {
+    "servers": {
+
+      // Grafana observability
+      "grafana": {
+        "type": "sse",
+        "url": "http://localhost:3000"
+      },
+
+      // Web4 AI engine
+      "web4-ai": {
+        "type": "sse",
+        "url": "http://localhost:8080"
+      },
+
+      // Fadaka blockchain node
+      "fadaka-chain": {
+        "type": "sse",
+        "url": "http://localhost:9000"
+      }
+    }
+  }
+}
