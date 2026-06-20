@@ -1,9 +1,9 @@
 # web4application
 
-This repository [ org] can be used to build a variety of web applications, depending on the technologies and frameworks it incorporates. Here are some examples of web applications you might develop using this repository:
+This  [ qubuhub.org] can be used to build a variety of web applications, depending on the technologies and frameworks it incorporates. Here are some examples of web applications you might develop using this repository:
 
 
-```bash
+```xlsl
 +----------------------------------------------------+
 |                      Web4                          |
 |                                                    |
