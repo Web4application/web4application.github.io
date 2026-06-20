@@ -1,0 +1,27 @@
+{
+  "name": "web4application-os",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Web4 Browser OS Kernel (GitHub Pages Deployment)",
+
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "deploy": "npm run build && touch out/.nojekyll",
+    "start": "npx serve out",
+    "lint": "next lint"
+  },
+
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25"
+  }
+}
