@@ -1,0 +1,8 @@
+"scripts": {
+  "dev": "next dev",
+  "build": "next build && next export",
+  "deploy": "npm run build && touch out/.nojekyll",
+  "sync": "git add . && git commit -m 'web4 update' && git push",
+  "preview": "npx serve out",
+  "lint": "next lint"
+}
