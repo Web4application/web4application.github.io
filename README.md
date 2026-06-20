@@ -1,13 +1,13 @@
 ---
-title: #[web4application.github.io](fastht.ml)
-description: #[About](docs.md)
-docs: 
+title: # > [web4application.github.io](fastht.ml)
+description: #[About](docs/get-started.md)
+docs: #> https://github.com/dashboard
 Include: 
 news: #[embed](https://www.theverge.com/)
 class: #[src/page/paperweb.html]
     - name: projects
 class: #[https://web4application.github.io/project.html]
-    - name: githu-pages
+    - name: gh-pages
 class: #[_layouts/defaults.html]
     - name: main
 class: #[index.html]
@@ -27,7 +27,7 @@ This  [ qubuhub.org] can be used to build a variety of web applications, dependi
 Create online stores with features like product listings, shopping carts, payment gateways, and user accounts.
 
 ## CONTENT MANAGEMENT SYSTEM 
-
+[CONTENT MANAGEMENT SYSTEM](https://github.com/dashboard)
 ITS can Develop systems for managing digital content, allowing users to create, edit, and publish content easily.
 
 ## SOCIAL MEDAI APPLICATIONS
