@@ -257,6 +257,6 @@ are given by appending ?, * or + as in regular expressions.
 * ? means zero or one occurence
 * \* means zero or more occurences
 * \+ means one or more occurences
-
+> 
 <!-- Find a better way to include the grammar -->
 <script src="http://gist-it.appspot.com/github/judofyr/temple/raw/master/lib/temple/grammar.rb"></script>
