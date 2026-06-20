@@ -1,84 +1,26 @@
+---
+title: #[web4application.github.io](fastht.ml)
+description: #[About](docs.md)
+docs: 
+Include: 
+news: #[embed](https://www.theverge.com/)
+class: #[src/page/paperweb.html]
+    - name: projects
+class: #[https://web4application.github.io/project.html]
+    - name: githu-pages
+class: #[_layouts/defaults.html]
+    - name: main
+class: #[index.html]
+    - name: template
+class: #[assets/css/style.css]
+    - name: fonts
+class: #[_saas/]
+---
+
 # web4application
 
 This  [ qubuhub.org] can be used to build a variety of web applications, depending on the technologies and frameworks it incorporates. Here are some examples of web applications you might develop using this repository:
 
-> 
-```xlsl
-+----------------------------------------------------+
-|                      Web4                          |
-|                                                    |
-|  +-----------------------+   +-------------------+ |
-|  |     React.js SPA      |<--|  Google Search API | |
-|  |-----------------------|   +-------------------+ |
-|  | - Home Page           |                        |
-|  | - AppStore            |                        |
-|  | - WalletConnect       |                        |
-|  | - Chat with Kubu-Hai  |                        |
-|  | - Menu                |                        |
-|  | - Online Gaming       |                        |
-|  +-----------------------+                        |
-|         |                                       | |
-|         v                                       | |
-|  +-----------------------+                      | |
-|  |   Node.js + Express   |                      | |
-|  |-----------------------|                      | |
-|  | - API Gateway         |                      | |
-|  | - Auth Service        |                      | |
-|  | - User Management     |                      | |
-|  | - Crypto Wallet       |<--->| CoinMarketCap API |
-|  | - AppStore Service    |                      | |
-|  | - AI Interaction      |                      | |
-|  | - Marketplace Service |<--->| Facebook API   | |
-|  | - Game Service        |                      | |
-|  +-----------------------+                      | |
-|         |                                       | |
-|         v                                       | |
-|  +-----------------------+   +----------------+ | |
-|  |       MongoDB         |<--|  Discord API   | | |
-|  |-----------------------|   +----------------+ | |
-|  | - Users               |                      | |
-|  | - Apps                |                      | |
-|  | - Transactions        |                      | |
-|  | - Games               |                      | |
-|  | - Marketplace         |                      | |
-|  +-----------------------+            
-|       |«```code»|
-|  +----------------------------------------------------+
-├── /src
-│   ├── /modules
-│   │   ├── /auth
-│   │   │   ├── authController.js
-│   │   │   ├── authService.js
-│   │   │   └── authRoutes.js
-│   │   ├── /user
-│   │   │   ├── userController.js
-│   │   │   ├── userService.js
-│   │   │   └── userRoutes.js
-│   │   ├── /product
-│   │   │   ├── productController.js
-│   │   │   ├── productService.js
-│   │   │   └── productRoutes.js
-│   │   └── /order
-│   │       ├── orderController.js
-│   │       ├── orderService.js
-│   │       └── orderRoutes.js
-│   │
-│   ├── app.js
-│   └── config.js
-│
-├── /public
-│   ├── index.html
-│   └── styles.css
-│
-├── /tests
-│   ├── auth.test.js
-│   ├── user.test.js
-│   ├── product.test.js
-│   └── order.test.js
-│
-├── package.json
-└── README.md
-```
 
 ## E-commerce Platforms
 
