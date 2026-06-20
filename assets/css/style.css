@@ -1,0 +1,126 @@
+:root {
+  --primary: #7dcfff;
+  --secondary: #bb9af7;
+  --glass-bg: rgba(15, 15, 26, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui;
+  background: #050508;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND */
+.mesh-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(at 0% 0%, #1a1a2e, transparent),
+              radial-gradient(at 100% 0%, #2e1a4e, transparent);
+  animation: flow 15s infinite alternate;
+}
+
+@keyframes flow {
+  from { transform: translate(0,0); }
+  to { transform: translate(20px,20px); }
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  z-index: -1;
+}
+
+/* CURSOR GLOW */
+#glow-cursor {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(125,207,255,0.15), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+}
+
+/* DASHBOARD */
+.dashboard {
+  margin-top: 120px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* GLASS PANEL */
+.glass-panel {
+  padding: 30px;
+  border-radius: 24px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  transition: 0.3s;
+}
+
+.glass-panel:hover {
+  transform: translateY(-5px);
+}
+
+/* BADGE */
+.badge {
+  font-size: 10px;
+  padding: 6px 10px;
+  border-radius: 50px;
+  border: 1px solid var(--glass-border);
+  color: var(--primary);
+}
+
+/* BUTTON */
+.btn-primary {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  cursor: pointer;
+}
+
+/* NEWS BAR */
+.news-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  border-top: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+.ticker-text {
+  white-space: nowrap;
+  display: inline-block;
+  animation: scroll 25s linear infinite;
+}
+
+@keyframes scroll {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
